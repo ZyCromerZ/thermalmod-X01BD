@@ -31,7 +31,7 @@ case "$GetVersion" in
 ;;
 esac
 ModulId="Thermal_ZyC_mpm2"
-StatusThermal=$ModulPath/$ModulId/system/vendor/etc/thermal-status.txt
+StatusThermal="$(cat "$ModulPath/$ModulId/system/vendor/etc/thermal-status.txt")"
 if [ ! -z "$1" ];then
 	if [ "$1" == "0" ];then
 		echo "set to stock thermal"
