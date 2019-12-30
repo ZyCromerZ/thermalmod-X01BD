@@ -46,11 +46,11 @@ if [ ! -z "$1" ];then
 	echo "done . . ."
 else
 	StatusThermalDescription="unknow"
-	if [ "$ThermalStatus" == "0" ];then
+	if [ "$StatusThermal" == "0" ];then
 		StatusThermalDescription="stock"
-	elif  [ "$ThermalStatus" == "1" ];then
+	elif  [ "$StatusThermal" == "1" ];then
 		StatusThermalDescription="from v3.2"
-	elif  [ "$ThermalStatus" == "2" ];then
+	elif  [ "$StatusThermal" == "2" ];then
 		StatusThermalDescription="from v4.8"
 	fi
 	echo "--- --- --- --- --- --- --- --- --- ---"
