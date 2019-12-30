@@ -41,7 +41,7 @@ ModulId="Thermal_ZyC_mpm2"
 if [ ! -z "$1" ];then
     echo "$1" > $ModulPath/$ModulId/system/vendor/etc/thermal-status.txt
 fi
-ThermalStatus=$ModulPath/$ModulId/system/vendor/etc/thermal-status.txt
+ThermalStatus="$(cat "$ModulPath/$ModulId/system/vendor/etc/thermal-status.txt")"
 if [ "$ThermalStatus" == "0" ];then
     cp -af $ModulPath/$ModulId/system/vendor/etc/thermal-engine.stock.conf $ModulPath/$ModulId/system/vendor/etc/thermal-engine.conf
 elif  [ "$ThermalStatus" == "1" ];then
