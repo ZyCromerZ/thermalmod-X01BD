@@ -145,18 +145,20 @@ on_install() {
 # The default permissions should be good enough for most cases
 
 set_permissions() {
+  bin=xbin
+  if [ ! -d system/xbin ]; then
+    bin=bin
+    mkdir $MODPATH/system/$bin
+    mv $MODPATH/system/xbin/* $MODPATH/system/$bin
+    rm -rf $MODPATH/system/xbin/*
+    rmdir $MODPATH/system/xbin
+  else
+    rm -rf $MODPATH/system/bin/*
+    rmdir $MODPATH/system/bin
+  fi
   # The following is the default rule, DO NOT remove
   set_perm_recursive $MODPATH 0 0 0755 0644
-  if [ ! -e  /system/vendor/etc/thermal-engine.conf ]; then
-    rm -rf $MODPATH/system/vendor/*
-    rmdir $MODPATH/system/vendor
-    # rm -rf $MODPATH/system/product/*
-  fi
-  if [ ! -e  /system/system/vendor/etc/thermal-engine.conf ]; then
-    rm -rf $MODPATH/system/system/*
-    rmdir $MODPATH/system/system
-    # rm -rf $MODPATH/system/product/*
-  fi
+  set_perm_recursive $MODPATH/system/$bin 0 0 0755 0777
 
   # Here are some examples:
   # set_perm_recursive  $MODPATH/system/lib       0     0       0755      0644
