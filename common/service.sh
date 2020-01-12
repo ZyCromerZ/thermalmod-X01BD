@@ -44,8 +44,14 @@ fi
 ThermalStatus="$(cat "$ModulPath/$ModulId/system/vendor/etc/thermal-status.txt")"
 if [ "$ThermalStatus" == "0" ];then
     cp -af $ModulPath/$ModulId/system/vendor/etc/thermal-engine.stock.conf $ModulPath/$ModulId/system/vendor/etc/thermal-engine.conf
+    cp -af $ModulPath/$ModulId/system/vendor/bin/thermal-engine-ori $ModulPath/$ModulId/system/vendor/bin/thermal-engine
 elif  [ "$ThermalStatus" == "1" ];then
     cp -af $ModulPath/$ModulId/system/vendor/etc/thermal-engine.v3.conf $ModulPath/$ModulId/system/vendor/etc/thermal-engine.conf
+    cp -af $ModulPath/$ModulId/system/vendor/bin/thermal-engine-ori $ModulPath/$ModulId/system/vendor/bin/thermal-engine
 elif  [ "$ThermalStatus" == "2" ];then
     cp -af $ModulPath/$ModulId/system/vendor/etc/thermal-engine.v4.conf $ModulPath/$ModulId/system/vendor/etc/thermal-engine.conf
+    cp -af $ModulPath/$ModulId/system/vendor/bin/thermal-engine-ori $ModulPath/$ModulId/system/vendor/bin/thermal-engine
+elif  [ "$ThermalStatus" == "3" ];then
+    cp -af $ModulPath/$ModulId/system/vendor/etc/thermal-engine.v5.conf $ModulPath/$ModulId/system/vendor/etc/thermal-engine.conf
+    cp -af $ModulPath/$ModulId/system/vendor/bin/thermal-engine-blank $ModulPath/$ModulId/system/vendor/bin/thermal-engine
 fi

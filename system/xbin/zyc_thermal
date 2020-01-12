@@ -37,11 +37,14 @@ if [ ! -z "$1" ];then
 		echo "set to stock thermal"
 		nohup sh $ModulPath/$ModulId/service.sh "0"  >/dev/null 2>&1 & 
 	elif [ "$1" == "1" ];then
-		echo "set to v3.2 thermal"
+		echo "set to v1 thermal"
 		nohup sh $ModulPath/$ModulId/service.sh "1"  >/dev/null 2>&1 & 
 	elif [ "$1" == "2" ];then
-		echo "set to latest thermal"
+		echo "set to v2 thermal"
 		nohup sh $ModulPath/$ModulId/service.sh "2"  >/dev/null 2>&1 & 
+	elif [ "$1" == "3" ];then
+		echo "set to latest thermal"
+		nohup sh $ModulPath/$ModulId/service.sh "3"  >/dev/null 2>&1 & 
 	fi
 	echo "done . . ."
 else
@@ -49,9 +52,11 @@ else
 	if [ "$StatusThermal" == "0" ];then
 		StatusThermalDescription="stock"
 	elif  [ "$StatusThermal" == "1" ];then
-		StatusThermalDescription="from v3.2"
+		StatusThermalDescription="v1"
 	elif  [ "$StatusThermal" == "2" ];then
-		StatusThermalDescription="from v4.8"
+		StatusThermalDescription="v2"
+	elif  [ "$StatusThermal" == "2" ];then
+		StatusThermalDescription="v3"
 	fi
 	echo "--- --- --- --- --- --- --- --- --- ---"
 	echo "current status module : $StatusThermalDescription"
