@@ -160,7 +160,7 @@ set_permissions() {
   if [ ! -s "/vendor/bin/thermal-engine" ];then
     cp -af /vendor/bin/thermal-engine $MODPATH/vendor/bin/thermal-engine-ori
   fi
-  if [ -s "/vendor/bin/thermal-engine-ori" ];
+  if [ -s "/vendor/bin/thermal-engine-ori" ];then
     cp -af /vendor/bin/thermal-engine-ori $MODPATH/vendor/bin/thermal-engine-ori
   fi
   if [ ! -e "$MODPATH/vendor/bin/thermal-engine-ori" ];then
