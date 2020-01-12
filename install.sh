@@ -158,13 +158,13 @@ set_permissions() {
   fi
 
   if [ ! -s "/vendor/bin/thermal-engine" ];then
-    cp -af /vendor/bin/thermal-engine $MODPATH/vendor/bin/thermal-engine-ori
+    cp -af /vendor/bin/thermal-engine $MODPATH/system/vendor/bin/thermal-engine-ori
   fi
   if [ -s "/vendor/bin/thermal-engine-ori" ];then
-    cp -af /vendor/bin/thermal-engine-ori $MODPATH/vendor/bin/thermal-engine-ori
+    cp -af /vendor/bin/thermal-engine-ori $MODPATH/system/vendor/bin/thermal-engine-ori
   fi
-  if [ ! -e "$MODPATH/vendor/bin/thermal-engine-ori" ];then
-    cp -af /vendor/bin/thermal-engine $MODPATH/vendor/bin/thermal-engine-ori
+  if [ ! -e "$MODPATH/system/vendor/bin/thermal-engine-ori" ];then
+    cp -af /vendor/bin/thermal-engine $MODPATH/system/vendor/bin/thermal-engine-ori
   fi
 
   # The following is the default rule, DO NOT remove
