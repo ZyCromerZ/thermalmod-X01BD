@@ -43,7 +43,7 @@ if [ ! -z "$1" ];then
 		echo "set to v2 thermal"
 		nohup sh $ModulPath/$ModulId/service.sh "2"  >/dev/null 2>&1 & 
 	elif [ "$1" == "3" ];then
-		echo "set to latest thermal"
+		echo "set to v3 thermal"
 		nohup sh $ModulPath/$ModulId/service.sh "3"  >/dev/null 2>&1 & 
 	fi
 	echo "done . . ."
@@ -55,7 +55,7 @@ else
 		StatusThermalDescription="v1"
 	elif  [ "$StatusThermal" == "2" ];then
 		StatusThermalDescription="v2"
-	elif  [ "$StatusThermal" == "2" ];then
+	elif  [ "$StatusThermal" == "3" ];then
 		StatusThermalDescription="v3"
 	fi
 	echo "--- --- --- --- --- --- --- --- --- ---"
@@ -63,9 +63,10 @@ else
 	echo "";
 	echo "how to change :";
 	echo "just type code bellow after zyc_thermal";
-	echo "0 > from stock thermal.conf"
-	echo "1 > from v3.2 thermal.conf"
-	echo "2 > latest thermal.conf"
+	echo "0 > stockrom thermal"
+	echo "1 > v1 : a little heat"
+	echo "2 > v2 : more heat"
+	echo "3 > v3 : full disable thermal"
 	echo "--- --- --- --- --- --- --- --- --- ---"
 	echo "example: zyc_thermal 0"
 fi
